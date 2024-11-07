@@ -1,19 +1,20 @@
 #include <iostream>
-#include <set>
+#include <unordered_set>
 using namespace std;
 
-bool isCheese(string str) { return str == "Cheese"; }
+bool isCheese(const string& str) { return str == "Cheese"; }
 
 int main() {
   int numberOfToppings;
   cin >> numberOfToppings;
 
   string topping;
-  set<string> toppingSet;
+  unordered_set<string> toppingSet;
 
   for (int i = 0; i < numberOfToppings; i++) {
     cin >> topping;
-    if (topping.length() >= 6 && isCheese(topping.substr(topping.length() - 6, 6))) {
+    if (topping.length() >= 6 &&
+        isCheese(topping.substr(topping.length() - 6, 6))) {
       toppingSet.insert(topping);
     } else {
       continue;
